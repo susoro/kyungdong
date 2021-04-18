@@ -1,0 +1,178 @@
+@charset "utf-8";
+@import url('./ani.css');
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body { font-family:'Noto Sans KR', sans-serif; font-size:1.0rem; line-height:1; color:#000;}
+.wrap { overflow: hidden; position: relative; scroll-behavior: smooth; }
+
+/* header */
+#header { transition: background 1s; padding: 1.875rem 0; border-bottom: 1px solid #ddd; }
+#header .inner { margin: 0 6%; display: flex; justify-content: space-between; align-items: center; }
+#header h1 {order: 2; max-width:100%; height:auto; }/* 순서지정! */
+#header .gnb { order: 1; display: flex; }
+#header .gnb li { font-size: 1.0rem; margin:0 1.25rem;}
+#header .gnb li a:hover{color:#17469E;}
+
+#header .m-menu { display: none; font-size: 0; width: 1.875rem; height: 3px; background: #000; position: relative; }
+#header .m-menu:before { content: ""; position: absolute; width: 100%; height: 3px; background: #000; transform: translateY(-10px); }
+#header .m-menu:after { content: ""; position: absolute; width: 100%; height: 3px; background: #000; transform: translateY(10px); }
+
+/* mobile gnb */
+#header .mgnb-wrap { z-index:999; position:fixed; right:100%; top:0; width:100%; height:100%; padding:9.375rem 0; box-sizing:border-box; background:#fff url('../images/icon.png') no-repeat 11% 80px; }
+#header .mgnb { border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(255,255,255,0.3); padding: 1.875rem 10%; }
+#header .mgnb li { padding:1.25rem 0; font-size: 2.604vw; font-weight: bold; } 
+#header .mgnb li a{color: #333;}
+#header .mgnb li a:hover{color: #17469E;}
+#header .close { font-size: 0; position:absolute; right:50px; top:80px; display:inline-block; background:#333; width: 50px; height: 1px; transform: rotate(45deg); cursor: pointer; }
+#header .close:after { content: ""; position:absolute; right:0; top:0; display:inline-block; background:#333; width: 50px; height: 1px; transform: rotate(-90deg); }
+
+/* uitil */
+#header .util { order: 3; display: flex; }
+#header .util li { margin-left: 1.875rem; }
+#header .util li a { color: #999; }
+#header .util input[type="image"] { transform: translateY(-3px);}
+#header.fix { position: fixed; left: 0; top: 0; width: 100%; background: rgba(255,255,255,0.9); z-index: 9; }
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    #header h1{max-width:90%; height:auto;}
+    #header .gnb { display: none; }
+    #header .m-menu { display: block; }
+    #header .util li:not(.search) { display: none; }
+    #header .mgnb li { font-size: 4vw; font-weight: 400;} /*font-size:50px*/
+    #header .mgnb li a{color: #333;}
+}
+/* Mobile */
+@media all and (max-width : 767px) {
+    #header h1{max-width:80%; height:auto;}
+	#header .gnb { display: none; }
+    #header .m-menu { display: block; }
+    #header .util li:not(.search) { display: none; }
+    #header .mgnb li { font-size: 4vw;font-weight: 400; } /*font-size:50px*/
+    #header .mgnb li a{color: #333;}
+}
+/* Mobile */
+@media all and (max-width : 767px) {
+    .none { display: block; }
+}
+
+/* main-visual */
+.main-visual { padding: 6% 0; border-bottom: 1px solid #ddd; text-align: center; }
+.main-visual .inner { margin: 0 6%; }
+.main-visual h2 {font-weight:500; font-size: 4.166vw; padding-bottom: 2.6vw; }
+.main-visual h3 { font-size: 1.45vw; letter-spacing: -1px; line-height: 1.3; padding-bottom: 3.125rem; } /*24px*/
+.main-visual img { width: 100%; }
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    .main-visual h2 { font-size: 7.812vw; }
+    .main-visual h3 { font-size: 2.343vw; padding-bottom: 4.882vw; }
+}
+/* Mobile */
+@media all and (max-width : 767px) {
+    .main-visual h2 { font-size: 10.416vw; }
+    .main-visual h3 { font-size: 3.125vw; padding-bottom: 6.51vw; }
+}
+
+
+
+
+/* 회사소개 */
+#introduction h2 { font-size: 2.604vw; font-weight: bold; } /* 50px */
+#introduction .small-title { font-size: 1.145vw; color: #333; line-height: 1.5; padding: 1.562vw 0; } /* 22px */
+.introduction-brand { border-bottom: 1px solid #ddd; text-align: center; position: relative;}
+.introduction-brand .inner { margin: 0 3%; display: flex; }
+.introduction-brand .inner div { width: calc(100%/2); padding: 6% 3%; }
+.introduction-brand .desc { display: flex; flex-direction: column; justify-content: center; }
+.brand-img img{width: 100%; margin-bottom:20px;}
+.introduction-brand .detail a { display: inline-block; font-size: 18px; border-bottom: 1px solid #ddd; color: #999; }
+.brand img { width: 100%; }
+
+
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    #introduction h2 { font-size: 4.882vw; }
+    #introduction .small-title { font-size: 2.148vw; }
+    .brand:after { display: none; }
+    .brand .inner { flex-wrap: wrap; }
+    .brand .inner div { width: 100%; }
+    .brand .detail a { font-size: 1.757vw; }
+}
+/* Mobile */
+@media all and (max-width : 767px) {
+    #introduction .inner{flex-wrap: wrap;}
+    .brand-img img{position: relative; left: 130px;}
+    #introduction .desc{text-align: center;position: relative; left: 130px;}
+    #introduction h2 { font-size: 6.51vw; }
+    #introduction .small-title { font-size: 2.864vw; }
+    .brand:after { display: none; }
+    .brand .inner { flex-wrap: wrap; }
+    .brand .inner div { width: 100%; }
+    .brand .detail a { font-size: 2.343vw; }
+}
+
+
+/* 사업분야 */
+#business-field { padding: 6% 0; border-bottom: 1px solid #ddd; text-align: center; }
+#business-field .inner { margin: 0 12%; }
+#business-field ul { margin-top: 7%; display: flex; justify-content: space-between; }
+#business-field ul li { width: calc(94%/3); }
+#business-field ul li img { width: 100%; object-fit:cover;}
+.business-field-img{width: 100%;
+box-sizing: border-box; transition:0.5s;}
+.business-field-img img:hover{background:#17469E; filter:blur(1px); transition:.5s;}
+.business-field-img span{position: absolute; top: 50%; left: 50%; opacity: 0; font-size:1.2rem; color:#fff;transform: translate(-50%,-50%);}
+.business-field-img:hover span{opacity: 1; transition: .5s; color:#fff; font-size:1.5rem;}
+#business-field ul li h3 { font-size: 1.354vw; font-weight:400; padding-top: 1.25rem;padding-top: 8px; padding-bottom:15px;}
+#business-field ul li h3 span { color:rgb(0, 0, 0,0.7); font-size: 1.12vw;}
+#business-field ul li p{color: rgb(153, 153, 153);}
+#business-field ul li h3:hover, #business-field ul li p:hover{color:#17469E;}
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    #business-field ul { flex-wrap: wrap; }
+    #business-field ul li { width: 100%; margin-bottom: 1.875rem; }
+    #business-field ul li h3 { font-size: 2.539vw; }}
+/* Mobile */
+@media all and (max-width : 767px) {
+    #business-field ul { flex-wrap: wrap; }
+    #business-field ul li { width: 100%; margin-bottom: 1.875rem; }
+    #business-field ul li h3 { font-size: 3.385vw; }}
+
+
+/* 기술혁신 */
+#innovation { padding: 6% 0; border-bottom: 1px solid #ddd; text-align: center;}
+#innovation .inner { margin: 0 6%; }
+#innovation .banner { margin-top: 2.604vw; overflow: hidden; height: 25%; position: relative; }
+#innovation .banner img { transition: transform 1s; width: 100%; }
+#innovation .banner:hover img { transform: scale(1.2,1.2); }
+#innovation .banner dl { position: absolute; left: 50%; top: 50%; color: #fff; transform: translate(-50%,-50%); z-index: 999; }
+#innovation .banner dt { font-size: 2.604vw; letter-spacing:normal;}
+#innovation .banner dd { font-size: 1.041vw; padding-top: 1.875rem; opacity: 0.7; }
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    #innovation .banner dt { font-size: 4.88vw; }
+    #innovation .banner dd { font-size: 1.953vw; }}
+/* Mobile */
+@media all and (max-width : 767px) {
+    #innovation .banner dt { font-size: 6.51vw; }
+    #innovation .banner dd { font-size: 2.604vw; }}
+
+
+/* footer */
+.footer { text-align: center; color: #999; padding: 6% 0; }
+.footer .copyright { padding: 1.25rem 0; }
+.footer .footer-logo { position: relative; }
+.footer address{line-height:1.3;}
+/* Tablets */
+@media all and (min-width : 768px) and (max-width : 1024px) {
+    #footer { font-size: 1.562vw; }}
+/* Mobile */
+@media all and (max-width : 767px) {
+    #footer { font-size: 2.083vw; }}
+
+
+
+
+
+
+
+
